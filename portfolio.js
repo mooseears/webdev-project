@@ -4,15 +4,15 @@ createHome();
 const projects = [
   {
     name: 'Laundromat',
-    description: 'projects/laundromat/description.txt',
+    //description: 'projects/laundromat/description.txt',
+    description: 'This project is a simple laundromat scene created for a class I took at PCC. Our assignment was to build a space in Unity using what we had learned at the time. I chose to make a laundromat because I thought it an interesting space with good options for including sound effects. For some added interaction, the carts and detergent bottles are all rigid body objects that can be knocked around with the hand attached to the player camera.',
     thumbnail: 'projects/laundromat/thumbnail.png',
-    anim: 'projects/laundormat/anim.gif',
   },
   {
     name: 'Adoption Rush',
-    description: 'projects/adoption_rush/description.txt',
+    //description: 'projects/adoption_rush/description.txt',
+    description: 'My final project for a gamedev class I took was a puzzle game called Adoption Rush, made in an old version of Game Maker. Our assignment was to make a game related to a non-profit of our choosing and I chose the Oregon Humane Society. The Oregon Humane Society had a yearly goal of 10,000 adoptions, so I made a game geared toward that.',
     thumbnail: 'projects/adoption_rush/thumbnail.png',
-    anim: 'projects/adoption_rush/anim.gif',
   }
 ]
 
@@ -48,54 +48,45 @@ function createPage(pageTitle, pageText, pageImage) {
 function createHome() {
   title = "Home";
   image = "images/me.png";
-  text = "Hello and welcome to my portfolio site, created for CS410P Intro to Web Development.";
+  text = "Welcome to my portfolio site, created for CS410P - Intro to Web Development.";
 
-  createPage(title, text, image);
+  createPage(title, text);
 }
 
 function createAbout() {
   title= "About Me";
   image= "images/me.png";
-  text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+  text = "Hello, I am Jacob. I like making things and playing games. I've been in school for too long and am very much looking forward to graduating.";
   
   createPage(title, text, image);
 }
 
 function createProjects() {
-  title = "Projects";
-  createPage(title);
+  cleanUp();
+  let header = document.createElement('h1');
+  header.textContent = "Projects";
+  app.append(header);
 
   projects.forEach((project) => {
     let element = document.createElement('div');
-    let title = document.createElement('h3');
-    let image = document.createElement('img');
+    let projTitle = document.createElement('h3');
+    let projImage = document.createElement('img');
     let projDesc = document.createElement('p');
 
-    title.textContent = project.title;
-    image.src = project.thumbnail;
-    //readProjDesc(project, projDesc.textContent);
-    projDesc = project.description;
+    projTitle.textContent = project.name;
+    projImage.src = project.thumbnail;
+    projDesc.textContent = project.description;
 
-    element.className = "project-box";
+    element.className = "info-box";
 
-    element.append(image);
-    element.append(projDesc);
-    app.append(title);
+    element.append(projImage);
+    element.append(projTitle);
+    projTitle.append(projDesc);
     app.append(element);
-    app.append(document.createElement('hr'))
   })
 }
 
-function readProjDesc(project, projDesc) {
-  var xhr;
-  if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
-  else xhr = new ActiveXObject("Microsoft.XMLHTTP");
-
-  xhr.open('GET', project.description, false);
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState===4 && xhr.status===200) {
-      projDesc = xhr.responseText; 
-    }
-  }
-  xhr.send();
+function createContact() {
+  cleanUp();
+  
 }
