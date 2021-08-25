@@ -1,6 +1,0 @@
-My plan is to have the site be all on one page. There will be a navbar at the top with buttons for 
-each section of the site. Clicking on them should change the lower section to the relevant content.
-
-One of the things I wanted to do was have my projects page dynamically populated based on folders
-for each project, but I couldn't figure out a way to read the info from a text file without setting 
-up a server. So I just hard-coded everything into an array and used that.
