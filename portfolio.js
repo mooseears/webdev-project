@@ -5,14 +5,16 @@ const projects = [
   {
     name: 'Laundromat',
     //description: 'projects/laundromat/description.txt',
-    description: 'This project is a simple laundromat scene created for a class I took at PCC. Our assignment was to build a space in Unity using what we had learned at the time. I chose to make a laundromat because I thought it an interesting space with good options for including sound effects. For some added interaction, the carts and detergent bottles are all rigid body objects that can be knocked around with the hand attached to the player camera.',
+    description: 'This project is a simple laundromat scene created for a class I took at PCC. Our assignment was to build a space in Unity using what we had learned at the time. I chose to make a laundromat because I thought it an interesting space with good options for including sound effects.',
     thumbnail: 'projects/laundromat/thumbnail.png',
+    alt: 'Screenshot of laundromat project'
   },
   {
     name: 'Adoption Rush',
     //description: 'projects/adoption_rush/description.txt',
     description: 'My final project for a gamedev class I took was a puzzle game called Adoption Rush, made in an old version of Game Maker. Our assignment was to make a game related to a non-profit of our choosing and I chose the Oregon Humane Society. The Oregon Humane Society had a yearly goal of 10,000 adoptions, so I made a game geared toward that.',
     thumbnail: 'projects/adoption_rush/thumbnail.png',
+    alt: 'Screenshot of Adoption Rush',
   }
 ]
 
@@ -75,6 +77,7 @@ function createProjects() {
 
     projTitle.textContent = project.name;
     projImage.src = project.thumbnail;
+    projImage.alt = project.alt;
     projDesc.textContent = project.description;
 
     element.className = "info-box";
@@ -88,5 +91,69 @@ function createProjects() {
 
 function createContact() {
   cleanUp();
+  let element = document.createElement('form');
+  let header = document.createElement('h1');
+  header.textContent = "Contact";
   
+  let fnameGroup = document.createElement('div');
+  let fnameLabel = document.createElement('label');
+  let fnameInput = document.createElement('input');
+  fnameGroup.className = 'form-group';
+  fnameLabel.htmlFor = 'firstNameInput';
+  fnameLabel.textContent = 'First name';
+  fnameInput.type = 'text';
+  fnameInput.className = 'form-control';
+  fnameInput.id = 'firstNameInput';
+  fnameInput.placeholder = 'Enter first name';
+  fnameGroup.append(fnameLabel);
+  fnameGroup.append(fnameInput);
+  
+  let lnameGroup = document.createElement('div');
+  let lnameLabel = document.createElement('label');
+  let lnameInput = document.createElement('input');
+  lnameGroup.className = 'form-group';
+  lnameLabel.htmlFor = 'lastNameInput';
+  lnameLabel.textContent = 'Last name';
+  lnameInput.type = 'text';
+  lnameInput.className = 'form-control';
+  lnameInput.id = 'lastNameInput';
+  lnameInput.placeholder = 'Enter last name';
+  lnameGroup.append(lnameLabel);
+  lnameGroup.append(lnameInput);
+  
+  let emailGroup = document.createElement('div');
+  let emailLabel = document.createElement('label');
+  let emailInput = document.createElement('input');
+  emailGroup.className = 'form-group';
+  emailLabel.htmlFor = 'emailInput';
+  emailLabel.textContent = 'Email address';
+  emailInput.type = 'email';
+  emailInput.className = 'form-control';
+  emailInput.id = 'emailInput';
+  emailInput.placeholder = 'Enter email';
+  emailGroup.append(emailLabel);
+  emailGroup.append(emailInput);
+
+  let messageGroup = document.createElement('div');
+  let messageLabel = document.createElement('labal');
+  let messageInput = document.createElement('textarea');
+  messageGroup.className = 'form-group';
+  messageLabel.htmlFor = 'messageInput';
+  messageLabel.textContent = 'Message';
+  messageInput.className = 'form-control';
+  messageInput.id = 'messageInput';
+  messageInput.placeholder = 'Enter your message';
+  messageGroup.append(messageLabel);
+  messageGroup.append(messageInput);
+
+  let submitButton = document.createElement('button');
+  submitButton.className = 'btn btn-primary mb-2';
+  submitButton.textContent = 'Submit';
+
+  app.append(header);
+  app.append(fnameGroup);
+  app.append(lnameGroup);
+  app.append(emailGroup);
+  app.append(messageGroup);
+  app.append(submitButton);
 }

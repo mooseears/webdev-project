@@ -47,8 +47,8 @@ section {
 .info-box {
   display: flex;
   flex-wrap: wrap;
-  color: inherit;
   justify-content: center;
+  padding-top: 10px;
 }
 
 h1 {
@@ -65,8 +65,26 @@ img {
 
 p {
   padding: 10px;
-  text-align: justify;
+  text-align: left;
   max-width: 450px;
   padding-left: 20px;
   font-size: 14pt;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-control {
+  width: 300px;
+}
+ 
+textarea {
+  min-height: 100px;
+  margin-top: 5px;
+}
+
+.btn {
+  width: 150px;
+  margin-top: 5px;
 }
